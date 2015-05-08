@@ -1,0 +1,25 @@
+{
+  "name": "environment_validator",
+  "version": "1.0.0",
+  "description": "Validates that your node engine and installed modules match what is in your package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/westfield/environment_validator.git"
+  },
+  "keywords": [
+    "engine",
+    "module",
+    "checker",
+    "validator"
+  ],
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/westfield/environment_validator/issues"
+  },
+  "homepage": "https://github.com/westfield/environment_validator"
+}

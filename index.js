@@ -7,6 +7,6 @@ module.exports = {
   validate: function validate (packageJsonPath) {
     var packageInfo = require(packageJsonPath)
     checkEngine(packageInfo)
-    checkModules(packageInfo, `${path.dirname(packageJsonPath)}/node_modules`)
+    checkModules(packageInfo, path.dirname(packageJsonPath) + '/node_modules')
   }
 }

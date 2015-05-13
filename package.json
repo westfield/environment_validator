@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/westfield/environment_validator.git"
+    "url": "https://github.com/westfieldlabs/environment_validator.git"
   },
   "keywords": [
     "engine",
@@ -20,9 +20,9 @@
   "author": "",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/westfield/environment_validator/issues"
+    "url": "https://github.com/westfieldlabs/environment_validator/issues"
   },
-  "homepage": "https://github.com/westfield/environment_validator",
+  "homepage": "https://github.com/westfieldlabs/environment_validator",
   "dependencies": {
     "merge": "^1.2.0",
     "semver": "^4.3.4"

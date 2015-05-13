@@ -1,5 +1,5 @@
 {
-  "name": "environment_validator",
+  "name": "@westfieldlabs/environment_validator",
   "version": "1.0.0",
   "description": "Validates that your node engine and installed modules match what is in your package.json",
   "main": "index.js",

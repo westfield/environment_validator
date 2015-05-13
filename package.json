@@ -4,8 +4,8 @@
   "description": "Validates that your node engine and installed modules match what is in your package.json",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint -s",
-    "spec": "mocha $(find test -name '*_spec.js')",
+    "test": "npm run lint -s && npm run mocha -s",
+    "mocha": "mocha $(find test -name '*_test.js')",
     "lint": "standard"
   },
   "repository": {

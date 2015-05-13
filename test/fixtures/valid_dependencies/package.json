@@ -1,0 +1,10 @@
+{
+  "name": "test_project",
+  "version": "1.0.0",
+  "dependencies": {
+    "@some_scope/module": "2.0.0",
+    "global_module": "1.0.0",
+    "git_module": "git://github.com/some_user/some_module.git",
+    "local_module": "../local_module"
+  }
+}

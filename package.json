@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint -s",
+    "spec": "mocha $(find test -name '*_spec.js')",
     "lint": "standard"
   },
   "repository": {
@@ -28,6 +29,8 @@
     "semver": "^4.3.4"
   },
   "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
     "standard": "^3.7.3"
   }
 }

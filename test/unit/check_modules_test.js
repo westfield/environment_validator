@@ -37,4 +37,24 @@ describe('Checking modules', function () {
       )
     })
   })
+
+  describe('when dependencies are unsaved', function () {
+    it('throws an exception', function () {
+      var packageInfo = require('../fixtures/unsaved_dependencies/package.json')
+      var error
+      try {
+        checkModules(
+          packageInfo,
+          path.resolve(fixture_path, 'unsaved_dependencies', 'node_modules')
+        )
+      } catch(e) {
+        error = e
+      }
+      expect(error).not.to.be.null
+      expect(error.name).to.eql('UnsavedDependenciesError')
+      expect(error.message).to.eql(
+        'Unsaved dependencies installed: unsaved_module_a, unsaved_module_b. Run `npm prune` to remove them or add them to your package.json'
+      )
+    })
+  })
 })

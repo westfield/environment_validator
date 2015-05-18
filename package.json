@@ -1,15 +1,16 @@
 {
-  "name": "environment_validator",
+  "name": "@westfieldlabs/environment_validator",
   "version": "1.0.0",
   "description": "Validates that your node engine and installed modules match what is in your package.json",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint -s",
+    "test": "npm run lint -s && npm run mocha -s",
+    "mocha": "mocha $(find test -name '*_test.js')",
     "lint": "standard"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/westfield/environment_validator.git"
+    "url": "https://github.com/westfieldlabs/environment_validator.git"
   },
   "keywords": [
     "engine",
@@ -20,14 +21,16 @@
   "author": "",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/westfield/environment_validator/issues"
+    "url": "https://github.com/westfieldlabs/environment_validator/issues"
   },
-  "homepage": "https://github.com/westfield/environment_validator",
+  "homepage": "https://github.com/westfieldlabs/environment_validator",
   "dependencies": {
     "merge": "^1.2.0",
     "semver": "^4.3.4"
   },
   "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
     "standard": "^3.7.3"
   }
 }

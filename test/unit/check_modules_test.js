@@ -22,7 +22,7 @@ describe('Checking modules', function () {
   }
 
   function run () {
-    return checkModules(packageInfo(), dependencyPath())
+    return checkModules(packageInfo(), dependencyPath(), true)
   }
 
   beforeEach(function () {

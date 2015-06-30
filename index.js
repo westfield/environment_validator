@@ -7,6 +7,10 @@ module.exports = {
   validate: function validate (packageJsonPath) {
     var packageInfo = require(packageJsonPath)
     checkEngine(packageInfo)
-    checkModules(packageInfo, path.dirname(packageJsonPath) + '/node_modules')
+    checkModules(
+      packageInfo,
+      path.join(path.dirname(packageJsonPath), 'node_modules'),
+      ['development', 'test'].indexOf(process.env.NODE_ENV) >= 0
+    )
   }
 }

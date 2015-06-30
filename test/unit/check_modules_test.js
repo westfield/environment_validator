@@ -68,5 +68,26 @@ describe('Checking modules', function () {
         )
       })
     })
+
+    describe('dependencies are invalid', function () {
+      it('throws an exception', function () {
+        var basePath = path.join(fixturePath, 'invalid_flattened_dependencies')
+        var packageInfo = require(path.join(basePath, 'package.json'))
+        var error
+        try {
+          checkModules(
+            packageInfo,
+            path.join(basePath, 'node_modules')
+          )
+        } catch(e) {
+          error = e
+        }
+        expect(error).not.to.be.null
+        expect(error.name).to.eql('MissingDependenciesError')
+        expect(error.message).to.eql(
+          'Required dependency missing: shared_module. Run `npm install`'
+        )
+      })
+    })
   })
 })

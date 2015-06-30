@@ -48,7 +48,9 @@ describe('Checking modules', function () {
       expect(error).not.to.be.null
       expect(error.name).to.eql('MissingDependenciesError')
       expect(error.message).to.eql(
-        'Required dependencies missing: module_a, module_b. Run `npm install`'
+        'Required dependencies missing: module_a, module_b at path: ' +
+        basePath() +
+        '/node_modules. Run `npm install`'
       )
     })
   })
@@ -92,7 +94,9 @@ describe('Checking modules', function () {
         expect(error).not.to.be.null
         expect(error.name).to.eql('MissingDependenciesError')
         expect(error.message).to.eql(
-          'Required dependency missing: shared_module. Run `npm install`'
+          'Required dependency missing: shared_module at path: ' +
+          basePath() +
+          '/node_modules/module_a/node_modules. Run `npm install`'
         )
       })
     })

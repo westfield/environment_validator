@@ -6,26 +6,28 @@ var expect = require('chai').expect
 var checkModules = require('../../lib/check_modules')
 
 describe('Checking modules', function () {
-  var fixture_path = path.resolve(__dirname, '..', 'fixtures')
+  var fixturePath = path.resolve(__dirname, '..', 'fixtures')
 
   describe('when they are valid', function () {
     it('does not throw an exception', function () {
-      var packageInfo = require('../fixtures/valid_dependencies/package.json')
+      var basePath = path.join(fixturePath, 'valid_dependencies')
+      var packageInfo = require(path.join(basePath, 'package.json'))
       checkModules(
         packageInfo,
-        path.resolve(fixture_path, 'valid_dependencies', 'node_modules')
+        path.join(basePath, 'node_modules')
       )
     })
   })
 
   describe('when dependencies are missing', function () {
     it('throws an exception', function () {
-      var packageInfo = require('../fixtures/missing_dependencies/package.json')
+      var basePath = path.join(fixturePath, 'missing_dependencies')
+      var packageInfo = require(path.join(basePath, 'package.json'))
       var error
       try {
         checkModules(
           packageInfo,
-          path.resolve(fixture_path, 'valid_dependencies', 'node_modules')
+          path.join(basePath, 'node_modules')
         )
       } catch(e) {
         error = e
@@ -40,12 +42,13 @@ describe('Checking modules', function () {
 
   describe('when dependencies are unsaved', function () {
     it('throws an exception', function () {
-      var packageInfo = require('../fixtures/unsaved_dependencies/package.json')
+      var basePath = path.join(fixturePath, 'unsaved_dependencies')
+      var packageInfo = require(path.join(basePath, 'package.json'))
       var error
       try {
         checkModules(
           packageInfo,
-          path.resolve(fixture_path, 'unsaved_dependencies', 'node_modules')
+          path.join(basePath, 'node_modules')
         )
       } catch(e) {
         error = e
@@ -53,7 +56,9 @@ describe('Checking modules', function () {
       expect(error).not.to.be.null
       expect(error.name).to.eql('UnsavedDependenciesError')
       expect(error.message).to.eql(
-        'Unsaved dependencies installed: unsaved_module_a, unsaved_module_b. Run `npm prune` to remove them or add them to your package.json'
+        'Unsaved dependencies installed: unsaved_module_a, ' +
+        'unsaved_module_b. Run `npm prune` to remove them or add them to ' +
+        'your package.json'
       )
     })
   })
@@ -61,10 +66,11 @@ describe('Checking modules', function () {
   describe('when modules have been deduped', function () {
     describe('dependencies are valid', function () {
       it('does not throw an exception', function () {
-        var packageInfo = require('../fixtures/valid_flattened_dependencies/package.json')
+        var basePath = path.join(fixturePath, 'valid_flattened_dependencies')
+        var packageInfo = require(path.join(basePath, 'package.json'))
         checkModules(
           packageInfo,
-          path.resolve(fixture_path, 'valid_flattened_dependencies', 'node_modules')
+          path.join(basePath, 'node_modules')
         )
       })
     })

@@ -57,4 +57,16 @@ describe('Checking modules', function () {
       )
     })
   })
+
+  describe('when modules have been deduped', function () {
+    describe('dependencies are valid', function () {
+      it('does not throw an exception', function () {
+        var packageInfo = require('../fixtures/valid_flattened_dependencies/package.json')
+        checkModules(
+          packageInfo,
+          path.resolve(fixture_path, 'valid_flattened_dependencies', 'node_modules')
+        )
+      })
+    })
+  })
 })

@@ -1,0 +1,7 @@
+{
+  "name": "circular_dependencies",
+  "version": "1.0.0",
+  "dependencies": {
+    "module_a": "1.0.0"
+  }
+}

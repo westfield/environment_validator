@@ -74,6 +74,15 @@ describe('Checking modules', function () {
     })
   })
 
+  describe('circular dependencies', function () {
+    describe('dependencies are valid', function () {
+      it('does not throw an exception', function () {
+        fixtureName = 'circular_dependencies'
+        run()
+      })
+    })
+  })
+
   describe('when modules have been deduped', function () {
     describe('dependencies are valid', function () {
       it('does not throw an exception', function () {

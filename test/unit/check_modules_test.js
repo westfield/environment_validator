@@ -21,7 +21,7 @@ describe('Checking modules', function () {
     return path.join(basePath(), 'node_modules')
   }
 
-  function run () {
+  function runCheckModules () {
     return checkModules(packageInfo(), dependencyPath(), true)
   }
 
@@ -32,7 +32,7 @@ describe('Checking modules', function () {
   describe('when they are valid', function () {
     it('does not throw an exception', function () {
       fixtureName = 'valid_dependencies'
-      run()
+      runCheckModules()
     })
   })
 
@@ -41,7 +41,7 @@ describe('Checking modules', function () {
       fixtureName = 'missing_dependencies'
       var error
       try {
-        run()
+        runCheckModules()
       } catch(e) {
         error = e
       }
@@ -60,7 +60,7 @@ describe('Checking modules', function () {
       fixtureName = 'unsaved_dependencies'
       var error
       try {
-        run()
+        runCheckModules()
       } catch(e) {
         error = e
       }
@@ -78,7 +78,7 @@ describe('Checking modules', function () {
     describe('dependencies are valid', function () {
       it('does not throw an exception', function () {
         fixtureName = 'circular_dependencies'
-        run()
+        runCheckModules()
       })
     })
   })
@@ -87,7 +87,7 @@ describe('Checking modules', function () {
     describe('dependencies are valid', function () {
       it('does not throw an exception', function () {
         fixtureName = 'valid_flattened_dependencies'
-        run()
+        runCheckModules()
       })
     })
 
@@ -96,7 +96,7 @@ describe('Checking modules', function () {
         fixtureName = 'invalid_flattened_dependencies'
         var error
         try {
-          run()
+          runCheckModules()
         } catch(e) {
           error = e
         }
